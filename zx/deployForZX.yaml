@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zx-deployment
+  labels:
+    app: zx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zx
+  template:
+    metadata:
+      labels:
+        app: zx
+    spec:
+      containers:
+      - name: zx
+        image: ghcr.io/cunmingliu/zhangxun/service1:latest
+        ports:
+        - containerPort: 3000
